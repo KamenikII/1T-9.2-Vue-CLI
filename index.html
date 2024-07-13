@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Control HTML</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1 ref="heading">{{title}}</h1>
+      <button @click="changeTitle">click</button>
+
+      <hr />
+
+      <button v-bind:class="getCss" :style="style">{{btnTitle}}</button>
+      <!-- То же самое <button :class="{'large':fontSize, 'border': border}">{{btnTitle}}</button> -->
+      <ul>
+        <li>
+          <input type="checkbox" v-model="fontSize" />
+          <label for="">Font Size</label>
+        </li>
+        <li>
+          <input type="checkbox" v-model="border" />
+          <label for="">Border</label>
+        </li>
+        <li>
+          <input type="text" v-model="bgColor" />
+          <label for="">Color</label>
+        </li>
+        <li>
+          <input type="range" v-model="range" />
+          <label for="">Range</label>
+        </li>
+      </ul>
+
+      <hr>
+
+      <!-- HomeWork -->
+      <h1 :style="styleHW">{{titleHW}}</h1>
+
+      <hr>
+
+      <input type="text" id="nick" v-model="nick">
+      <label for="nick">Nick</label>
+      <button @click="addNick">Add</button>
+      <h2>List of nicks:</h2>
+      <ul>
+        <li v-for="(nick) in checkedName">{{nick}}</li>
+      </ul>
+
+      <hr>
+
+      <select v-model="selected">
+        <option value=""></option>
+        <option value="Дом">Дом</option>
+        <option value="Квартира">Квартира</option>
+        <option value="Лес">Лес</option>
+      </select>
+      <span>Выбрано: {{selected}}</span>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="vue.js"></script>
+  </body>
+</html>
